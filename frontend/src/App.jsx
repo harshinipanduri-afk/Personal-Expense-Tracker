@@ -23,9 +23,13 @@ function App() {
             <Routes>
 
                 <Route
-                    path="/"
-                    element={<Navigate to="/login" />}
-                />
+    path="/"
+    element={
+        localStorage.getItem('token')
+            ? <Navigate to="/dashboard" />
+            : <Navigate to="/login" />
+    }
+/>
 
                 <Route
                     path="/login"
